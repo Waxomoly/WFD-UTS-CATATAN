@@ -21,6 +21,11 @@ class Participant extends Model
 
     ];
 
+    public static function relations()
+    {
+        return ['organizations'];
+    }
+
     public function organizations(): BelongsToMany
     {
         return $this->belongsToMany(Organization::class)->withPivot('reason')->withTimestamps();
